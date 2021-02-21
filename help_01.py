@@ -10,6 +10,10 @@ class Warrior:
 class Dragon:
     dr_power = 60
     dr_hp = 15
+
+with open("result.txt", 'r') as f:
+    print('\n'+f.read()+'\n')
+
 while True:
     user_input = input("Do you wish to play the game : (y / n) --> ")
     if user_input.lower() == 'y':
@@ -29,8 +33,12 @@ while True:
                         time.sleep(2)
                         if ((comp_choice.gb_power*numGoblins) - (user_troop.wr_hp*chance_of_warrior)) > 0:
                             print("The warrior lost...")
+                            with open("result.txt","w") as f:
+                                f.write("The goblins lost last time")
                         elif ((comp_choice.gb_power*numGoblins) - (user_troop.wr_hp*chance_of_warrior)) <= 0:
                             print("The Warrior won...")
+                            with open("result.txt","w") as f:
+                                f.write("The warrior won last time")
                         break
 
                     elif user_input == 'b':
@@ -40,8 +48,12 @@ while True:
                         time.sleep(2)
                         if (user_troop.wr_power - (comp_choice.gb_hp * numGoblins)) > 0:
                             print("The warrior won...")
+                            with open("result.txt","w") as f:
+                                f.write("The warrior won last time")
                         else:
                             print("The warrior losed...")
+                            with open("result.txt","w") as f:
+                                f.write("The goblins won last time")
                         break
                     else:
                         print("\nEnter a correct a answer...")
@@ -64,16 +76,24 @@ while True:
                         time.sleep(2)
                         if (comp_choice.dr_power - (user_troop.wr_hp * chance_of_warrior)) > 0:
                             print("The Warrior losed...")
+                            with open("result.txt","w") as f:
+                                f.write("The dragon won last time")
                         else:
                             print("The warrior won...")
+                            with open("result.txt","w") as f:
+                                f.write("The warrior won last time")
                         break
                     elif user_input == 'b':
                         print("The warrior is defending against the dragon...")
                         time.sleep(2)
                         if ((chance_of_warrior*user_troop.wr_power) / comp_choice.dr_hp) > 2:
                             print("The warrior is dead and the evil won...")
+                            with open("result.txt","w") as f:
+                                f.write("The dragon won last time")
                         else:
                             print("The warrion won and the dragon is dead...")
+                            with open("result.txt","w") as f:
+                                f.write("The warrior won last time")
                         break
                     else:
                         print("\nPlease enter a valid option...")
