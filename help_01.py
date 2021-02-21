@@ -78,7 +78,7 @@ while True:
                         print("\nPlease enter a valid option...")
             fight_with_dragon()
             break
-    elif user_input.lower() == 'b':
+    elif user_input.lower() == 'n':
         print("Okay no problem...")
         break
     else: 
