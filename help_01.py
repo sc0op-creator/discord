@@ -47,6 +47,7 @@ while True:
                         print("\nEnter a correct a answer...")
 
             fight_with_goblin()
+            break
         elif rndNo == 2:
             comp_choice = Dragon()
             chance_of_warrior = random.randint(4,7)
